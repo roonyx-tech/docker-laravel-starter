@@ -1,64 +1,130 @@
-<p align="center"><a href="https://laravel.com" target="_blank"><img src="https://raw.githubusercontent.com/laravel/art/master/logo-lockup/5%20SVG/2%20CMYK/1%20Full%20Color/laravel-logolockup-cmyk-red.svg" width="400"></a></p>
 
-<p align="center">
-<a href="https://travis-ci.org/laravel/framework"><img src="https://travis-ci.org/laravel/framework.svg" alt="Build Status"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/dt/laravel/framework" alt="Total Downloads"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/v/laravel/framework" alt="Latest Stable Version"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/l/laravel/framework" alt="License"></a>
-</p>
+# Install
 
-## About Laravel
+## Dependies for Window
+* Install make
+http://gnuwin32.sourceforge.net/packages/make.htm
+* Install Cygwin for sh
+http://www.cygwin.com/
+* Add paths to user enviroment
 
-Laravel is a web application framework with expressive, elegant syntax. We believe development must be an enjoyable and creative experience to be truly fulfilling. Laravel takes the pain out of development by easing common tasks used in many web projects, such as:
+## Step by step
 
-- [Simple, fast routing engine](https://laravel.com/docs/routing).
-- [Powerful dependency injection container](https://laravel.com/docs/container).
-- Multiple back-ends for [session](https://laravel.com/docs/session) and [cache](https://laravel.com/docs/cache) storage.
-- Expressive, intuitive [database ORM](https://laravel.com/docs/eloquent).
-- Database agnostic [schema migrations](https://laravel.com/docs/migrations).
-- [Robust background job processing](https://laravel.com/docs/queues).
-- [Real-time event broadcasting](https://laravel.com/docs/broadcasting).
+```
+$ touch .env
+```
+Add to `.env`:
+```
+APP_NAME=LARAVEL_STARTER
+APP_ENV=local
+APP_KEY=base64:X2IYnnt3pb9ooz5zdYBhf4yIlLW9Xjn9mEt8dOhgVME=
+APP_DEBUG=true
+APP_URL=http://localhost:8080
 
-Laravel is accessible, powerful, and provides tools required for large, robust applications.
+LOG_CHANNEL=stack
 
-## Learning Laravel
+DB_CONNECTION=mysql
+DB_HOST=mysql
+DB_PORT=3306
+DB_DATABASE=mydb
+DB_USERNAME=root
+DB_PASSWORD=root
 
-Laravel has the most extensive and thorough [documentation](https://laravel.com/docs) and video tutorial library of all modern web application frameworks, making it a breeze to get started with the framework.
+BROADCAST_DRIVER=log
+CACHE_DRIVER=file
+QUEUE_CONNECTION=sync
+SESSION_DRIVER=file
+SESSION_LIFETIME=120
 
-If you don't feel like reading, [Laracasts](https://laracasts.com) can help. Laracasts contains over 1500 video tutorials on a range of topics including Laravel, modern PHP, unit testing, and JavaScript. Boost your skills by digging into our comprehensive video library.
+REDIS_HOST=127.0.0.1
+REDIS_PASSWORD=null
+REDIS_PORT=6379
 
-## Laravel Sponsors
+MAIL_MAILER=smtp
+MAIL_HOST=smtp.mailtrap.io
+MAIL_PORT=2525
+MAIL_USERNAME=
+MAIL_PASSWORD=
+MAIL_ENCRYPTION=null
+MAIL_FROM_ADDRESS=mockup_generator@email.com
+MAIL_FROM_NAME="${APP_NAME}"
 
-We would like to extend our thanks to the following sponsors for funding Laravel development. If you are interested in becoming a sponsor, please visit the Laravel [Patreon page](https://patreon.com/taylorotwell).
+PUSHER_APP_ID=
+PUSHER_APP_KEY=
+PUSHER_APP_SECRET=
+PUSHER_APP_CLUSTER=mt1
 
-### Premium Partners
+MIX_PUSHER_APP_KEY="${PUSHER_APP_KEY}"
+MIX_PUSHER_APP_CLUSTER="${PUSHER_APP_CLUSTER}"
 
-- **[Vehikl](https://vehikl.com/)**
-- **[Tighten Co.](https://tighten.co)**
-- **[Kirschbaum Development Group](https://kirschbaumdevelopment.com)**
-- **[64 Robots](https://64robots.com)**
-- **[Cubet Techno Labs](https://cubettech.com)**
-- **[Cyber-Duck](https://cyber-duck.co.uk)**
-- **[Many](https://www.many.co.uk)**
-- **[Webdock, Fast VPS Hosting](https://www.webdock.io/en)**
-- **[DevSquad](https://devsquad.com)**
-- **[Curotec](https://www.curotec.com/services/technologies/laravel/)**
-- **[OP.GG](https://op.gg)**
-- **[CMS Max](https://www.cmsmax.com/)**
-- **[WebReinvent](https://webreinvent.com/?utm_source=laravel&utm_medium=github&utm_campaign=patreon-sponsors)**
+PROJECT_PATH=/opt/app/
 
-## Contributing
+SCOUT_DRIVER=algolia
+SCOUT_QUEUE=true
+ALGOLIA_APP_ID={SET_APP_ID}
+ALGOLIA_SECRET={SET_SECRET}
 
-Thank you for considering contributing to the Laravel framework! The contribution guide can be found in the [Laravel documentation](https://laravel.com/docs/contributions).
+SCOUT_PREFIX=mg_local_
 
-## Code of Conduct
+DASHBOARD_PREFIX=/admin
 
-In order to ensure that the Laravel community is welcoming to all, please review and abide by the [Code of Conduct](https://laravel.com/docs/contributions#code-of-conduct).
+AWS_ACCESS_KEY_ID=
+AWS_SECRET_ACCESS_KEY=
+AWS_DEFAULT_REGION=us-east-1
+AWS_BUCKET=
+AWS_BUCKET_USERS=
+FILESYSTEM_DRIVER=s3
+AWS_URL=
+```
+```
+$ touch ./frontend/.env.local
+```
+Add to `.env.local`:
+```
+SERVER='http://localhost:8080/'
+SCOUT_PREFIX='mg_local_'
+ALGOLIA_APP_ID='{SET_APP_ID}'
+ALGOLIA_SEARCH_API_KEY='{SET_API_KEY}'
+AMAZON_SERVER='https://fb-plus-mockup-admin.s3.amazonaws.com'
+AMAZON_SERVER_USERS='https://fb-plus-mockup-users.s3.amazonaws.com'
+```
+```
+$ sh build-updates.sh
+$ make console-php
+$ composer install
+$ exitы
+$ sh run-updates.sh
+```
 
-## Security Vulnerabilities
+## How add php extensions
+See the 
+```./Dockerfile```
+to supplement the main application container 
 
-If you discover a security vulnerability within Laravel, please send an e-mail to Taylor Otwell via [taylor@laravel.com](mailto:taylor@laravel.com). All security vulnerabilities will be promptly addressed.
+See the 
+```./docker/supervizor/supervizor.Dockerfile```
+to improve the supervizor container. A supervisor working with the queue is started in this container.
 
-## License
+This container 
+```./docker/scheduler/scheduler.Dockerfile```
+working with ```./crontab```
 
-The Laravel framework is open-sourced software licensed under the [MIT license](https://opensource.org/licenses/MIT).
+## To work with containers
+###Check the Database
+```
+$ make console-mysql
+$ mysql -uroot -p 
+```
+Enter the DB password and choose DB
+
+```
+$ use mydb
+```
+Now you can make db queries.
+
+###To Enter to the php container
+```make console-php```
+
+To check all the commands see ```./Makefile```
+
+Also you can improve ```./build-updates.sh``` and ```./run-updates.sh``` scripts

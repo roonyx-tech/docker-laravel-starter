@@ -1,0 +1,20 @@
+2021-09-06 13:27:11,561 CRIT Supervisor is running as root.  Privileges were not dropped because no user is specified in the config file.  If you intend to run as root, you can set user=root in the config file to avoid this message.
+2021-09-06 13:27:11,576 INFO supervisord started with pid 1
+2021-09-06 13:27:12,582 INFO spawned: 'email-queue_01' with pid 7
+2021-09-06 13:27:12,591 INFO spawned: 'email-queue_00' with pid 8
+2021-09-06 13:27:12,758 INFO exited: email-queue_01 (exit status 255; not expected)
+2021-09-06 13:27:12,760 INFO exited: email-queue_00 (exit status 255; not expected)
+2021-09-06 13:27:13,779 INFO spawned: 'email-queue_01' with pid 9
+2021-09-06 13:27:13,802 INFO spawned: 'email-queue_00' with pid 10
+2021-09-06 13:27:13,817 INFO exited: email-queue_01 (exit status 255; not expected)
+2021-09-06 13:27:13,848 INFO exited: email-queue_00 (exit status 255; not expected)
+2021-09-06 13:27:15,862 INFO spawned: 'email-queue_01' with pid 11
+2021-09-06 13:27:15,867 INFO spawned: 'email-queue_00' with pid 12
+2021-09-06 13:27:15,880 INFO exited: email-queue_01 (exit status 255; not expected)
+2021-09-06 13:27:15,885 INFO exited: email-queue_00 (exit status 255; not expected)
+2021-09-06 13:27:19,041 INFO spawned: 'email-queue_01' with pid 13
+2021-09-06 13:27:19,070 INFO spawned: 'email-queue_00' with pid 14
+2021-09-06 13:27:19,194 INFO exited: email-queue_00 (exit status 255; not expected)
+2021-09-06 13:27:19,196 INFO gave up: email-queue_00 entered FATAL state, too many start retries too quickly
+2021-09-06 13:27:19,217 INFO exited: email-queue_01 (exit status 255; not expected)
+2021-09-06 13:27:20,220 INFO gave up: email-queue_01 entered FATAL state, too many start retries too quickly
