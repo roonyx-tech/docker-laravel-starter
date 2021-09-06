@@ -92,7 +92,7 @@ AMAZON_SERVER_USERS='https://fb-plus-mockup-users.s3.amazonaws.com'
 $ sh build-updates.sh
 $ make console-php
 $ composer install
-$ exitы
+$ exitе
 $ sh run-updates.sh
 ```
 

@@ -56,6 +56,11 @@ ps:
 	@echo ${BOLD}"\nContainers statuses\n" ${END_COLOR}
 	@docker-compose ps
 
+unit:
+	@echo ${BOLD}"\nRun Unit Tests\n" ${END_COLOR}
+	sh run-unit.sh
+
+
 docker-prune:
 	@echo ${BOLD}"\nClear\n" ${END_COLOR}
 	@docker image prune
