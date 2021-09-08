@@ -4,16 +4,15 @@ Docker Laravel 8.x Starter Kit was created as a way to save time when starting a
 
 
 ## Table of contents
-- [Out-of-the-box functionality](https://github.com/roonyx-tech/docker-laravel-starter#install)
+- [Out-of-the-box functionality](https://github.com/roonyx-tech/docker-laravel-starter#out-of-the-box-functionality)
 - [Getting started](https://github.com/roonyx-tech/docker-laravel-starter#getting-started)
   - [Dependies for Window](https://github.com/roonyx-tech/docker-laravel-starter#dependies-for-window)
   - [Init](https://github.com/roonyx-tech/docker-laravel-starter#init)
   - [Docker build and run the application](https://github.com/roonyx-tech/docker-laravel-starter#docker-build-and-run-the-application)
 - [How to add php extensions](https://github.com/roonyx-tech/docker-laravel-starter#how-to-add-php-extensions)
-- [To work with containers](https://github.com/roonyx-tech/docker-laravel-starter#install)
+- [To work with containers](https://github.com/roonyx-tech/docker-laravel-starter#to-work-with-containers)
   - [Check the Database](https://github.com/roonyx-tech/docker-laravel-starter#check-the-database)
   - [To Enter to the php container](https://github.com/roonyx-tech/docker-laravel-starter#to-enter-to-the-php-container)
-- [How to add php extensions](https://github.com/roonyx-tech/docker-laravel-starter#how-to-add-php-extensions)
 - [Tests and Lints](https://github.com/roonyx-tech/docker-laravel-starter#tests-and-lints)
   - [To Run unit tests](https://github.com/roonyx-tech/docker-laravel-starter#to-run-unit-tests)
   - [To Lint the files](https://github.com/roonyx-tech/docker-laravel-starter#to-lint-the-files)
