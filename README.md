@@ -18,10 +18,9 @@ Docker Laravel 8.x Starter Kit was created as a way to save time when starting a
   - [To Lint the files](https://github.com/roonyx-tech/docker-laravel-starter#to-lint-the-files)
 
 ## Out-of-the-box functionality
+- [make](https://www.gnu.org/software/make/)
+- [Docker](https://docs.docker.com/engine/install/ubuntu/)
 - [docker-compose](https://docs.docker.com/compose/) configuration for start project
-- [NoVerify](https://github.com/VKCOM/noverify) fast php linter 
-- [laravel-cors](https://github.com/fruitcake/laravel-cors) CORS Middleware for Laravel
-
   
 ## Getting Started
 
