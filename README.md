@@ -47,6 +47,13 @@ $ make up-build-d
 ```
 $ make console-php
 $ composer install
+```
+- Now call noVerify to get the binary file of linter
+```
+$ ./vendor/bin/noverify-get
+```
+- Generate new app key and clear cahce here inside the container
+```
 $ php artisan key:generate
 $ php artisan optimize:clear
 $ exit
