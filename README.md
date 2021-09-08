@@ -3,7 +3,7 @@
 Docker Laravel 8.x Starter Kit was created as a way to save time when starting a new Laravel based project. We have taken the most common functionality and configuration in our existing Laravel projects, and put those into this project. Simply clone this project, and change the git remote to your remote repository. Docker Laravel Starter Kit is ready to start with docker-compose.
 
 
-##Table of contents
+## Table of contents
 - [Out-of-the-box functionality](https://github.com/roonyx-tech/docker-laravel-starter#install)
 - [Getting started](https://github.com/roonyx-tech/docker-laravel-starter#install)
   - [Init](https://github.com/roonyx-tech/docker-laravel-starter#install)
@@ -20,7 +20,7 @@ Docker Laravel 8.x Starter Kit was created as a way to save time when starting a
 
 
 
-##Out-of-the-box functionality
+## Out-of-the-box functionality
 - [docker-compose](https://docs.docker.com/compose/) configuration for start project
 - [NoVerify](https://github.com/VKCOM/noverify) fast php linter 
 - [laravel-cors](https://github.com/fruitcake/laravel-cors) CORS Middleware for Laravel
@@ -30,7 +30,7 @@ Docker Laravel 8.x Starter Kit was created as a way to save time when starting a
 
 [Dependies for Window](https://github.com/roonyx-tech/docker-laravel-starter#install)
   
-##Getting Started
+## Getting Started
 
 #### Dependies for Window
 * Install make
@@ -83,7 +83,7 @@ This container
 working with ```./crontab```
 
 ## To work with containers
-####Check the Database
+#### Check the Database
 ```
 $ make console-mysql
 $ mysql -uroot -p 
@@ -95,7 +95,7 @@ $ use mydb
 ```
 Now you can make db queries.
 
-####To Enter to the php container
+#### To Enter to the php container
 ```$ make console-php```
 
 To check all the commands see ```./Makefile```
