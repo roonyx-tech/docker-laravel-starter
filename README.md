@@ -1,102 +1,75 @@
 
-# Install
+# About 
+Docker Laravel 8.x Starter Kit was created as a way to save time when starting a new Laravel based project. We have taken the most common functionality and configuration in our existing Laravel projects, and put those into this project. Simply clone this project, and change the git remote to your remote repository. Docker Laravel Starter Kit is ready to start with docker-compose.
 
-## Dependies for Window
+
+##Table of contents
+- [Out-of-the-box functionality](https://github.com/roonyx-tech/docker-laravel-starter#install)
+- [Getting started](https://github.com/roonyx-tech/docker-laravel-starter#install)
+  - [Init](https://github.com/roonyx-tech/docker-laravel-starter#install)
+  - [Docker build and run the application](https://github.com/roonyx-tech/docker-laravel-starter#install)
+
+- [To work with containers](https://github.com/roonyx-tech/docker-laravel-starter#install)
+  - [Check the Database]()
+  - [To Enter to the php container]()
+- [How to add php extensions]()
+- [Tests and Lints](https://github.com/roonyx-tech/docker-laravel-starter#install)
+  - [Running tests](https://github.com/roonyx-tech/docker-laravel-starter#install)
+  - [Running lints](https://github.com/roonyx-tech/docker-laravel-starter#install)
+  - [Coverage report](https://github.com/roonyx-tech/docker-laravel-starter#install)
+
+
+
+##Out-of-the-box functionality
+- [docker-compose](https://docs.docker.com/compose/) configuration for start project
+- [NoVerify](https://github.com/VKCOM/noverify) fast php linter 
+- [laravel-cors](https://github.com/fruitcake/laravel-cors) CORS Middleware for Laravel
+
+
+
+
+[Dependies for Window](https://github.com/roonyx-tech/docker-laravel-starter#install)
+  
+##Getting Started
+
+#### Dependies for Window
 * Install make
 http://gnuwin32.sourceforge.net/packages/make.htm
 * Install Cygwin for sh
 http://www.cygwin.com/
-* Add paths to user enviroment
+* Add paths to user environment
 
-## Step by step
+#### Init
+- Install make if need.
+- Clone Laravel Starter Kit
 
+- Go to root directory of the project and create ```.env``` from ```.env.example``` template
 ```
-$ touch .env
+$ cp .env.example .env
 ```
-Add to `.env`:
+#### Docker build and run the application
 ```
-APP_NAME=LARAVEL_STARTER
-APP_ENV=local
-APP_KEY=base64:X2IYnnt3pb9ooz5zdYBhf4yIlLW9Xjn9mEt8dOhgVME=
-APP_DEBUG=true
-APP_URL=http://localhost:8080
-
-LOG_CHANNEL=stack
-
-DB_CONNECTION=mysql
-DB_HOST=mysql
-DB_PORT=3306
-DB_DATABASE=mydb
-DB_USERNAME=root
-DB_PASSWORD=root
-
-BROADCAST_DRIVER=log
-CACHE_DRIVER=file
-QUEUE_CONNECTION=sync
-SESSION_DRIVER=file
-SESSION_LIFETIME=120
-
-REDIS_HOST=127.0.0.1
-REDIS_PASSWORD=null
-REDIS_PORT=6379
-
-MAIL_MAILER=smtp
-MAIL_HOST=smtp.mailtrap.io
-MAIL_PORT=2525
-MAIL_USERNAME=
-MAIL_PASSWORD=
-MAIL_ENCRYPTION=null
-MAIL_FROM_ADDRESS=mockup_generator@email.com
-MAIL_FROM_NAME="${APP_NAME}"
-
-PUSHER_APP_ID=
-PUSHER_APP_KEY=
-PUSHER_APP_SECRET=
-PUSHER_APP_CLUSTER=mt1
-
-MIX_PUSHER_APP_KEY="${PUSHER_APP_KEY}"
-MIX_PUSHER_APP_CLUSTER="${PUSHER_APP_CLUSTER}"
-
-PROJECT_PATH=/opt/app/
-
-SCOUT_DRIVER=algolia
-SCOUT_QUEUE=true
-ALGOLIA_APP_ID={SET_APP_ID}
-ALGOLIA_SECRET={SET_SECRET}
-
-SCOUT_PREFIX=mg_local_
-
-DASHBOARD_PREFIX=/admin
-
-AWS_ACCESS_KEY_ID=
-AWS_SECRET_ACCESS_KEY=
-AWS_DEFAULT_REGION=us-east-1
-AWS_BUCKET=
-AWS_BUCKET_USERS=
-FILESYSTEM_DRIVER=s3
-AWS_URL=
+$ make up-build-d
 ```
+- Enter the php container, install dependencies, set the app key and exit the container
 ```
-$ touch ./frontend/.env.local
-```
-Add to `.env.local`:
-```
-SERVER='http://localhost:8080/'
-SCOUT_PREFIX='mg_local_'
-ALGOLIA_APP_ID='{SET_APP_ID}'
-ALGOLIA_SEARCH_API_KEY='{SET_API_KEY}'
-AMAZON_SERVER='https://fb-plus-mockup-admin.s3.amazonaws.com'
-AMAZON_SERVER_USERS='https://fb-plus-mockup-users.s3.amazonaws.com'
-```
-```
-$ sh build-updates.sh
 $ make console-php
 $ composer install
-$ exitе
+$ php artisan key:generate
+$ php artisan optimize:clear
+$ exit
+```
+- Run migrations and seeds.
+```
 $ sh run-updates.sh
 ```
+- Create a new repository on GitHub, BitBucket, or your own server
 
-## How add php extensions
+- Change the git remote to your new repository
+
+- Push changes
+
+## How to add php extensions
 See the 
 ```./Dockerfile```
 to supplement the main application container 
@@ -110,7 +83,7 @@ This container
 working with ```./crontab```
 
 ## To work with containers
-###Check the Database
+####Check the Database
 ```
 $ make console-mysql
 $ mysql -uroot -p 
@@ -122,9 +95,34 @@ $ use mydb
 ```
 Now you can make db queries.
 
-###To Enter to the php container
-```make console-php```
+####To Enter to the php container
+```$ make console-php```
 
 To check all the commands see ```./Makefile```
 
 Also you can improve ```./build-updates.sh``` and ```./run-updates.sh``` scripts
+
+## Tests and Lints
+#### To Run unit tests
+- To run the unit tests 
+
+```$ make unit```
+- To show the coverage 
+
+```make unit-coverage```
+- To run specified test suite
+
+```make unit-feature```
+#### To Lint the files
+- To lint the files
+
+```make lint```
+- To show list of checkers
+
+```make lint-checkers```
+- To get noVerify linter version
+
+```make lint-v```
+- To generate markdown checkers documentation
+
+```make lint-checkers-doc```

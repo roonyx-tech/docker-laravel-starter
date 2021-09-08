@@ -58,8 +58,31 @@ ps:
 
 unit:
 	@echo ${BOLD}"\nRun Unit Tests\n" ${END_COLOR}
-	sh run-unit.sh
+	@docker-compose exec php_fpm vendor/bin/phpunit
 
+unit-coverage:
+	@echo ${BOLD}"\nRun Unit Tests and show coverage\n" ${END_COLOR}
+	@docker-compose exec php_fpm vendor/bin/phpunit --coverage-html reports/
+
+unit-feature:
+	@echo ${BOLD}"\nRun test suite Feature\n" ${END_COLOR}
+	@docker-compose exec php_fpm vendor/bin/phpunit --testsuite Feature
+
+lint:
+	@echo ${BOLD}"\nRun noVerify lint files\n" ${END_COLOR}
+	@docker-compose exec php_fpm ./vendor/bin/noverify check
+
+lint-checkers:
+	@echo ${BOLD}"\nShow list of checkers\n" ${END_COLOR}
+	@docker-compose exec php_fpm ./vendor/bin/noverify checkers
+
+lint-checkers-doc:
+	@echo ${BOLD}"\nGenerate markdown checkers documentation\n" ${END_COLOR}
+	@docker-compose exec php_fpm ./vendor/bin/noverify checkers-doc
+
+lint-v:
+	@echo ${BOLD}"\nShow noVerify version\n" ${END_COLOR}
+	@docker-compose exec php_fpm ./vendor/bin/noverify version
 
 docker-prune:
 	@echo ${BOLD}"\nClear\n" ${END_COLOR}
